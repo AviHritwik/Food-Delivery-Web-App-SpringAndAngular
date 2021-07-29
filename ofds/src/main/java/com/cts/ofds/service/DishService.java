@@ -1,5 +1,8 @@
 package com.cts.ofds.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class DishService {
 
 	/**
@@ -8,11 +11,13 @@ public class DishService {
 	 * Return : List<Dish> - All the Dish in the DB
 	 */
 	
+	
 	/**
 	 * Add Dish
 	 * Arguments : Dish Object 
 	 * Return : Boolean as success or failure response
 	 */
+	
 	
 	/**
 	 * Update Dish
