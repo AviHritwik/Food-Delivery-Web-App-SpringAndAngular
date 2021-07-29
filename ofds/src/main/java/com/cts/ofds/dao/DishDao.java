@@ -3,6 +3,7 @@ package com.cts.ofds.dao;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -15,6 +16,7 @@ public class DishDao implements Dao<Dish,Integer>{
 
 	JdbcTemplate jdbc;
 	
+	@Autowired
 	public DishDao(JdbcTemplate jdbc) {
 		this.jdbc=jdbc;
 	}
