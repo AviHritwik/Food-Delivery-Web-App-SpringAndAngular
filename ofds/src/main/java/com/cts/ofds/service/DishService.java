@@ -1,6 +1,13 @@
 package com.cts.ofds.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import com.cts.ofds.dao.DishDaoImpl;
+import com.cts.ofds.model.Dish;
 
 @Service
 public class DishService {
@@ -19,7 +26,7 @@ public class DishService {
 			return dishDao.list();
 		}
 		catch(DataAccessException ex) {
-			return new List<Dish>();
+			return new ArrayList<Dish>();
 		}	
 	}
 	
@@ -33,7 +40,7 @@ public class DishService {
 	{
 		int response = 0;
 		try {
-			response = disihDao.add(dish);
+			response = dishDao.add(dish);
 		}
 		catch(DataAccessException ex){
 			response = 0;
@@ -75,7 +82,7 @@ public class DishService {
 			return dishDao.get(id);
 		}
 		catch(DataAccessException ex) {
-			return Null;
+			return null;
 		}
 	}
 	

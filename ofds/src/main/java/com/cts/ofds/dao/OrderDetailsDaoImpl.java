@@ -22,7 +22,7 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao{
 	
 	
 	@Override
-	public List<OrderDetails> list() //throws DataAccessException
+	public List<OrderDetails> list() throws DataAccessException
 	{
 		String sql = "select * from orderdetails";
 		List<OrderDetails> orderList = jdbc.query(sql, OrderDetailsRowMapper.rowMapper);
@@ -30,7 +30,7 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao{
 	}
 
 	@Override
-	public int add(OrderDetails t) //throws DataAccessException
+	public int add(OrderDetails t) throws DataAccessException
 	{
 		String sql = "insert into orderdetails(orderId,userId,dishes,price,orderDate) values (?,?,?,?,?)";
 		int response = jdbc.update(sql, t.getOrderId(),t.getUserId(),t.getDishes(),t.getPrice(),t.getOrderDate());
@@ -39,7 +39,7 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao{
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public Optional<OrderDetails> get(int id) //throws DataAccessException
+	public Optional<OrderDetails> get(int id) throws DataAccessException
 	{
 		String sql = "select * from  orderdetails where orderId=?";
 		OrderDetails order = null;
@@ -52,8 +52,15 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao{
 		return Optional.ofNullable(order);
 	}
 
+	public List<OrderDetails> getByUserId(String id)
+	{
+		String sql = "select * from orderdetails where userId = ?";
+		List<OrderDetails> orderList = jdbc.query(sql, OrderDetailsRowMapper.rowMapper);
+		return orderList;
+	}
+	
 	@Override
-	public int update(OrderDetails t, int id) //throws DataAccessException
+	public int update(OrderDetails t, int id) throws DataAccessException
 	{
 		String sql = "update orderdetails set dishes = ? , price = ? where orderId = ?";
 		int response = jdbc.update(sql,t.getDishes(),t.getPrice(),id);
@@ -61,7 +68,7 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao{
 	}
 
 	@Override
-	public int delete(int id) //throws DataAccessException
+	public int delete(int id) throws DataAccessException
 	{
 		String sql = "delete from orderdetails where orderId = ?";
 		int response = jdbc.update(sql,id);

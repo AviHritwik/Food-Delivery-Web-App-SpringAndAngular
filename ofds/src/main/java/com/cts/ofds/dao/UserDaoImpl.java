@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public List<User> list() //throws DataAccessException
+	public List<User> list() throws DataAccessException
 	{
 		String sql = "select * from user";
 		List<User> userList = jdbc.query(sql, UserRowMapper.rowMapper);
@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDao{
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public Optional<User> get(String id) // throws DataAccessException
+	public Optional<User> get(String id) throws DataAccessException
 	{
 		String sql = "select * from  user where userId=?";
 		User user = null;
@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public int update(User t, String id)  //throws DataAccessException
+	public int update(User t, String id)  throws DataAccessException
 	{
 		String sql = "update user set name = ? , password = ? , role = ? ,age = ? where userId = ?";
 		int response = jdbc.update(sql, t.getName(),t.getPassword(),t.getRole(),t.getAge(),id);
@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public int add(User t)  //throws DataAccessException
+	public int add(User t)  throws DataAccessException
 	{
 		String sql = "insert into user(userId,name,password,role,age) values ( ?,?,?,?,?)";
 		int response = jdbc.update(sql, t.getUserId(),t.getName(),t.getPassword(),t.getRole(),t.getAge());
@@ -60,7 +60,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public int delete(String id)  //throws DataAccessException
+	public int delete(String id)  throws DataAccessException
 	{
 		String sql = "delete from user where userId = ?";
 		int response = jdbc.update(sql,id);
