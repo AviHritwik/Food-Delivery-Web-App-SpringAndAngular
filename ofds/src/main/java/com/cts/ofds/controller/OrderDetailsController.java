@@ -1,4 +1,4 @@
-package com.cts.ofds.comtroller;
+package com.cts.ofds.controller;
 
 public class OrderDetailsController {
 
