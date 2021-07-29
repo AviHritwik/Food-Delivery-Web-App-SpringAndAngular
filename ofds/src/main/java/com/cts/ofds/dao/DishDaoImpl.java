@@ -21,7 +21,7 @@ public class DishDaoImpl implements DishDao{
 	
 	
 	@Override
-	public List<Dish> list() //throws DataAccessException
+	public List<Dish> list() throws DataAccessException
 	{
 		String sql = "select * from dish";
 		List<Dish> dishList = jdbc.query(sql,DishRowMapper.rowMapper);
@@ -30,7 +30,7 @@ public class DishDaoImpl implements DishDao{
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public Optional<Dish> get(int id) //throws DataAccessException
+	public Optional<Dish> get(int id) throws DataAccessException
 	{
 		String sql ="select * from dish where dishId = ?";
 		Dish dish = null;
@@ -39,7 +39,7 @@ public class DishDaoImpl implements DishDao{
 	}
 
 	@Override
-	public int update(Dish t, int id) //throws DataAccessException
+	public int update(Dish t, int id) throws DataAccessException
 	{
 		String sql = "update dish set dishName = ? , price = ? , description = ? ,type = ? where dishId = ?";
 		int response = jdbc.update(sql,t.getDishName(),t.getPrice(),t.getDescription(),t.getType(),id);
@@ -47,7 +47,7 @@ public class DishDaoImpl implements DishDao{
 	}
 
 	@Override
-	public int add(Dish t) //throws DataAccessException
+	public int add(Dish t) throws DataAccessException
 	{
 		String sql = "insert into dish(dishId,dishName,price,description,type) values (?,?,?,?,?)";
 		int response = jdbc.update(sql,t.getDisdId(),t.getDishName(),t.getPrice(),t.getDescription(),t.getType());
@@ -55,7 +55,7 @@ public class DishDaoImpl implements DishDao{
 	}
 
 	@Override
-	public int delete(int id) //throws DataAccessException
+	public int delete(int id) throws DataAccessException
 	{
 		String sql = "delete from dish where dishId = ?";
 		int response = jdbc.update(sql,id);
