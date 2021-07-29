@@ -1,5 +1,7 @@
 # Food-Delivery-Web-App-SpringAndAngular
-A Online Food Delivery Application :
+Online Food Delivery Application : A web-app with Spring and Aagular
+
+
   Server : Spring
     Spring Web
     Spring Data JDBC
