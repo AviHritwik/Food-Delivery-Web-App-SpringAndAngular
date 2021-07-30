@@ -1,7 +1,7 @@
 package com.cts.ofds.model;
 
 public class Dish {
-	private int disdId;
+	private int dishId;
 	private String dishName;
 	private double price;
 	private String description;
@@ -10,18 +10,18 @@ public class Dish {
 	
 	public Dish() {
 	}
-	public Dish(int disdId, String dishName, double price, String description, String type) {
-		this.disdId = disdId;
+	public Dish(int dishId, String dishName, double price, String description, String type) {
+		this.dishId = dishId;
 		this.dishName = dishName;
 		this.price = price;
 		this.description = description;
 		this.type = type;
 	}
-	public int getDisdId() {
-		return disdId;
+	public int getDishId() {
+		return dishId;
 	}
-	public void setDisdId(int disdId) {
-		this.disdId = disdId;
+	public void setDishId(int disdId) {
+		this.dishId = disdId;
 	}
 	public String getDishName() {
 		return dishName;
@@ -49,7 +49,7 @@ public class Dish {
 	}
 	@Override
 	public String toString() {
-		return "Dish [disdId=" + disdId + ", dishName=" + dishName + ", price=" + price + ", description=" + description
+		return "Dish [disdId=" + dishId + ", dishName=" + dishName + ", price=" + price + ", description=" + description
 				+ ", type=" + type + "]";
 	}
 	

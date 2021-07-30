@@ -50,7 +50,7 @@ public class DishDaoImpl implements DishDao{
 	public int add(Dish t) throws DataAccessException
 	{
 		String sql = "insert into dish(dishId,dishName,price,description,type) values (?,?,?,?,?)";
-		int response = jdbc.update(sql,t.getDisdId(),t.getDishName(),t.getPrice(),t.getDescription(),t.getType());
+		int response = jdbc.update(sql,t.getDishId(),t.getDishName(),t.getPrice(),t.getDescription(),t.getType());
 		return response;
 	}
 
