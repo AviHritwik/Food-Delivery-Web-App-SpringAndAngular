@@ -32,8 +32,8 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao{
 	@Override
 	public int add(OrderDetails t) throws DataAccessException
 	{
-		String sql = "insert into orderdetails(orderId,userId,dishes,price,orderDate) values (?,?,?,?,?)";
-		int response = jdbc.update(sql, t.getOrderId(),t.getUserId(),t.getDishes(),t.getPrice(),t.getOrderDate());
+		String sql = "insert into orderdetails(userId,dishes,price,orderDate) values (?,?,?,?)";
+		int response = jdbc.update(sql, t.getUserId(),t.getDishes(),t.getPrice(),t.getOrderDate());
 		return response;
 	}
 
@@ -52,10 +52,12 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao{
 		return Optional.ofNullable(order);
 	}
 
+	@SuppressWarnings("deprecation")
+	@Override
 	public List<OrderDetails> getByUserId(String id)
 	{
 		String sql = "select * from orderdetails where userId = ?";
-		List<OrderDetails> orderList = jdbc.query(sql, OrderDetailsRowMapper.rowMapper);
+		List<OrderDetails> orderList = jdbc.query(sql,new Object[] {id}, OrderDetailsRowMapper.rowMapper);
 		return orderList;
 	}
 	

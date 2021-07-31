@@ -28,6 +28,7 @@ public class DishDaoImpl implements DishDao{
 		return dishList;
 	}
 	
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public Optional<Dish> get(int id) throws DataAccessException
@@ -47,10 +48,10 @@ public class DishDaoImpl implements DishDao{
 	}
 
 	@Override
-	public int add(Dish t) throws DataAccessException
+	public int add(Dish t) //throws DataAccessException
 	{
-		String sql = "insert into dish(dishId,dishName,price,description,type) values (?,?,?,?,?)";
-		int response = jdbc.update(sql,t.getDishId(),t.getDishName(),t.getPrice(),t.getDescription(),t.getType());
+		String sql = "insert into dish(dishName,price,description,type) values (?,?,?,?)";
+		int response = jdbc.update(sql,t.getDishName(),t.getPrice(),t.getDescription(),t.getType());
 		return response;
 	}
 

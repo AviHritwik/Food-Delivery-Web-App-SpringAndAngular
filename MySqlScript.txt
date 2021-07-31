@@ -1,0 +1,33 @@
+create table dish(
+dishId int primary key auto_increment ,
+dishName varchar(70) ,
+description varchar(200), 
+type varchar(20) ,
+price decimal(20,2)
+);
+
+create table orderdetails(
+orderId int primary key auto_increment,
+userId varchar(50) ,
+orderDate varchar(10), 
+dishes varchar(500), 
+price decimal(20,2)
+);
+
+create table user(
+userId varchar(50) Primary Key, 
+name varchar(50) ,
+password varchar(25), 
+role varchar(10), 
+age integer
+);
+
+create table cart(
+cartId int Primary Key auto_increment, 
+userId varchar(50), 
+dishId int ,
+dishName varchar(70) ,
+description varchar(200) ,
+type varchar(20) ,
+price decimal(20,2)
+);

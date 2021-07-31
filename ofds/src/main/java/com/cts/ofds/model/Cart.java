@@ -29,5 +29,10 @@ public class Cart {
 	public void setDish(Dish dish) {
 		this.dish = dish;
 	}
+
+	@Override
+	public String toString() {
+		return "Cart [cartId=" + cartId + ", userId=" + userId + ", dish=" + dish + "]";
+	}
 	
 }

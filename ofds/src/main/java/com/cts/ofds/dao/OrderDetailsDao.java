@@ -16,4 +16,6 @@ public interface OrderDetailsDao {
 	int add(OrderDetails t);
 	
 	int delete(int id);
+	
+	List<OrderDetails> getByUserId(String id);
 }

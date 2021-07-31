@@ -14,6 +14,8 @@ public class OrderDetailsService {
 	
 	@Autowired
 	OrderDetailsDaoImpl orderDao;
+	@Autowired
+	CartService cartService;
 
 	/**
 	 * Get All Order 
@@ -68,8 +70,10 @@ public class OrderDetailsService {
 	public boolean add(OrderDetails orderDetails)
 	{
 		int response = 0;
+		
 		try {
 			response = orderDao.add(orderDetails);
+			//cartService.deleteAllByUserId(orderDetails.getUserId());
 		}
 		catch(DataAccessException ex){
 			response = 0;

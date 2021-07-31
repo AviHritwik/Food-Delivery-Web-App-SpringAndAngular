@@ -11,9 +11,7 @@ public class OrderDetails {
 	public OrderDetails() {
 	}
 	
-	public OrderDetails(int orderId, String userId, String dishes, String orderDate, double price) {
-		super();
-		this.orderId = orderId;
+	public OrderDetails(String userId, String dishes, String orderDate, double price) {
 		this.userId = userId;
 		this.dishes = dishes;
 		this.orderDate = orderDate;

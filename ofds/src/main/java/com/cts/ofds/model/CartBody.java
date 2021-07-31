@@ -1,33 +1,33 @@
 package com.cts.ofds.model;
 
-public class Dish {
+public class CartBody {
+	private String userId;
 	private int dishId;
 	private String dishName;
 	private double price;
 	private String description;
 	private String type;
 	
-	
-	public Dish() {
-	}
-	public Dish(int dishId, String dishName, double price, String description, String type) {
+	public CartBody() {}
+	public CartBody(String userId, int dishId, String dishName, double price, String description, String type) {
+		this.userId = userId;
 		this.dishId = dishId;
 		this.dishName = dishName;
 		this.price = price;
 		this.description = description;
 		this.type = type;
 	}
-	public Dish( String dishName, double price, String description, String type) {
-		this.dishName = dishName;
-		this.price = price;
-		this.description = description;
-		this.type = type;
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public int getDishId() {
 		return dishId;
 	}
-	public void setDishId(int disdId) {
-		this.dishId = disdId;
+	public void setDishId(int dishId) {
+		this.dishId = dishId;
 	}
 	public String getDishName() {
 		return dishName;
@@ -53,10 +53,6 @@ public class Dish {
 	public void setType(String type) {
 		this.type = type;
 	}
-	@Override
-	public String toString() {
-		return "Dish [disdId=" + dishId + ", dishName=" + dishName + ", price=" + price + ", description=" + description
-				+ ", type=" + type + "]";
-	}
+	
 	
 }
